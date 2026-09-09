@@ -13,7 +13,8 @@ $test = [
     1,
     2,
     3,
-    'color' => 'purple'
+    'color' => 'purple',
+    'music' => 'rock',
 ];
 var_dump($test);
 var_dump($test['name']);
