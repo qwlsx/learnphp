@@ -1,12 +1,19 @@
 <?php
-$test = 10;
-$test = 3.1;
-$test = "Hello";
-$test = 'õpilane';
-$test = '🎲';
-$test = true;
-$test = false;
-$test = [1, true, 'random'];
-$test = new stdClass();
-$test->name = 'Ruslan';
+$numbers = array(1,2,3);
+$numbers = [1, 2, 3];
+var_dump($numbers[1]);
+$numbers[2] = 5;
+var_dump($numbers);
+$test = [1, 'test', true, [1, 2, 3]];
 var_dump($test);
+var_dump($test[3][1]);
+$test = [
+    'name' => 'Ruslan',
+    'age' => 18,
+    1,
+    2,
+    3,
+    'color' => 'purple'
+];
+var_dump($test);
+var_dump($test['name']);
