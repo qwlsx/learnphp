@@ -1,4 +1,3 @@
-```php
 <?php include __DIR__ . '/partials/header.php'; ?>
 
 <main class="container">
@@ -12,4 +11,3 @@
   </div>
 </main>
 <?php include __DIR__ . '/partials/footer.php'; ?>
-```

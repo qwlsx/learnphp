@@ -1,4 +1,3 @@
-```html
 <div class="container">
     <header class="border-bottom lh-1 py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
@@ -50,4 +49,3 @@
         </nav>
     </div>
 </div>
-```
