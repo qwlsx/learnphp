@@ -2,29 +2,39 @@
 
 namespace App;
 
-class Router {
-    private static $routes = [];
+class Router
+{
+    private static array $routes = [];
 
-    public static function addRoute($path, $action) {
-        self::$routes[]= [
+    public static function addRoute($path, $action, $method = 'GET')
+    {
+        self::$routes[] = [
             'path' => $path,
-            'action' => $action
+            'action' => $action,
+            'method' => strtoupper($method),
         ];
     }
 
-    public static function getRoutes() {
+    public static function getRoutes()
+    {
         return self::$routes;
     }
 
-    public function __construct(private $path) {
+    public function __construct(private $path)
+    {
     }
 
-    public function match() {
+    public function match()
+    {
+        $path = parse_url($this->path, PHP_URL_PATH);
+        $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
+
         foreach (self::$routes as $route) {
-            if ($route['path'] === $this->path) {
+            if ($route['path'] === $path && $route['method'] === $method) {
                 return $route;
             }
         }
+
         return false;
     }
 }

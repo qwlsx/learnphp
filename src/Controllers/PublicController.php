@@ -102,5 +102,25 @@ class PublicController
 
         view('tech', compact('title', 'posts'));
     }
+    public function form()
+    {
+        $title = 'PHP Forms';
+        $message = null;
+
+        if (isset($_GET['name'])) {
+            $message = 'GET: Hello, ' . $_GET['name'];
+        }
+
+        view('form', compact('title', 'message'));
+    }
+
+    public function submitForm()
+    {
+        $title = 'PHP Forms';
+        $name = trim($_POST['name'] ?? '');
+        $message = $name !== '' ? 'POST: Hello, ' . $name : 'Please enter your name.';
+
+        view('form', compact('title', 'message'));
+    }
 }
 
