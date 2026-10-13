@@ -34,7 +34,7 @@ class PublicController
             ],
         ];
 
-        include __DIR__ . '/../../views/index.php';
+        view('index', compact('title', 'posts'));
     }
 
     public function us()
@@ -67,7 +67,7 @@ class PublicController
             ],
         ];
 
-        include __DIR__ . '/../../views/index.php';
+        view('us', compact('title', 'posts'));
     }
 
     public function tech()
@@ -100,7 +100,7 @@ class PublicController
             ],
         ];
 
-        include __DIR__ . '/../../views/tech.php';
+        view('tech', compact('title', 'posts'));
     }
 }
 
