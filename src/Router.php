@@ -8,11 +8,7 @@ class Router
 
     public static function addRoute($path, $action, $method = 'GET')
     {
-        self::$routes[] = [
-            'path' => $path,
-            'action' => $action,
-            'method' => strtoupper($method),
-        ];
+        self::$routes[] = new Route($method, $path, $action);
     }
 
     public static function getRoutes()
@@ -30,8 +26,15 @@ class Router
         $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
 
         foreach (self::$routes as $route) {
-            if ($route['path'] === $path && $route['method'] === $method) {
-                return $route;
+            if (
+                $route->getPath() === $path &&
+                $route->getMethod() === $method
+            ) {
+                return [
+                    'path' => $route->getPath(),
+                    'action' => $route->getAction(),
+                    'method' => $route->getMethod(),
+                ];
             }
         }
 
