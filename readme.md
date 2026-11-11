@@ -16,3 +16,14 @@
 
 
 10. create new git repo from learnphp and push it to github
+
+## Database
+
+Start Docker Desktop, then start the MariaDB service from the project directory:
+
+```sh
+docker compose up -d
+```
+
+The application connects to `localhost:33061`. Check that the database container
+is running with `docker compose ps`.

@@ -26,13 +26,11 @@ class Route
         return $this->action;
     }
 
-    public static function get(string $path, $action): void
-    {
-        Router::addRoute($path, $action, 'GET');
+    public static function get(string $path, callable|array $action): void {
+        Router::addRoute('GET', $path, $action);
     }
 
-    public static function post(string $path, $action): void
-    {
-        Router::addRoute($path, $action, 'POST');
+     public static function post(string $path, callable|array $action): void {
+        Router::addRoute('POST', $path, $action);
     }
 }
